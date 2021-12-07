@@ -1,7 +1,9 @@
 // Take a look at the license at the top of the repository in the LICENSE file.
 
-use glib::translate::*;
+use std::ffi::CStr;
 use std::ptr;
+
+use glib::translate::*;
 
 #[derive(Debug, PartialEq, Eq)]
 #[doc(alias = "GstRTSPContext")]
@@ -18,6 +20,13 @@ impl RTSPContext {
             let ctx = RTSPContext(ptr::NonNull::new_unchecked(ptr));
             Some(func(&ctx))
         }
+    }
+
+
+    pub fn uri_query(&self) -> String {
+        let ctx = self.0.as_ptr();
+        let query = unsafe { (*(*ctx).uri).query };
+        unsafe { CStr::from_ptr(query).to_string_lossy().into_owned() }
     }
 
     // TODO: Add various getters for all the contained fields as needed
