@@ -3,6 +3,17 @@
 // from gst-gir-files (https://gitlab.freedesktop.org/gstreamer/gir-files-rs.git)
 // DO NOT EDIT
 
+use std::boxed::Box as Box_;
+use std::mem::transmute;
+
+use glib::object::Cast;
+use glib::object::IsA;
+use glib::signal::connect_raw;
+use glib::signal::SignalHandlerId;
+use glib::StaticType;
+use glib::ToValue;
+use glib::translate::*;
+
 use crate::RTSPAuth;
 use crate::RTSPContext;
 use crate::RTSPFilterResult;
@@ -13,15 +24,6 @@ use crate::RTSPSessionPool;
 #[cfg_attr(feature = "dox", doc(cfg(feature = "v1_18")))]
 use crate::RTSPStreamTransport;
 use crate::RTSPThreadPool;
-use glib::object::Cast;
-use glib::object::IsA;
-use glib::signal::connect_raw;
-use glib::signal::SignalHandlerId;
-use glib::translate::*;
-use glib::StaticType;
-use glib::ToValue;
-use std::boxed::Box as Box_;
-use std::mem::transmute;
 
 glib::wrapper! {
     #[doc(alias = "GstRTSPClient")]
@@ -850,7 +852,7 @@ impl<O: IsA<RTSPClient>> RTSPClientExt for O {
                 RTSPClient::from_glib_borrow(this).unsafe_cast_ref(),
                 &from_glib_borrow(ctx),
             )
-            .into_glib()
+                .into_glib()
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -886,7 +888,7 @@ impl<O: IsA<RTSPClient>> RTSPClientExt for O {
                 RTSPClient::from_glib_borrow(this).unsafe_cast_ref(),
                 &from_glib_borrow(ctx),
             )
-            .into_glib()
+                .into_glib()
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -922,7 +924,7 @@ impl<O: IsA<RTSPClient>> RTSPClientExt for O {
                 RTSPClient::from_glib_borrow(this).unsafe_cast_ref(),
                 &from_glib_borrow(ctx),
             )
-            .into_glib()
+                .into_glib()
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -958,7 +960,7 @@ impl<O: IsA<RTSPClient>> RTSPClientExt for O {
                 RTSPClient::from_glib_borrow(this).unsafe_cast_ref(),
                 &from_glib_borrow(ctx),
             )
-            .into_glib()
+                .into_glib()
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -994,7 +996,7 @@ impl<O: IsA<RTSPClient>> RTSPClientExt for O {
                 RTSPClient::from_glib_borrow(this).unsafe_cast_ref(),
                 &from_glib_borrow(ctx),
             )
-            .into_glib()
+                .into_glib()
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -1030,7 +1032,7 @@ impl<O: IsA<RTSPClient>> RTSPClientExt for O {
                 RTSPClient::from_glib_borrow(this).unsafe_cast_ref(),
                 &from_glib_borrow(ctx),
             )
-            .into_glib()
+                .into_glib()
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -1066,7 +1068,7 @@ impl<O: IsA<RTSPClient>> RTSPClientExt for O {
                 RTSPClient::from_glib_borrow(this).unsafe_cast_ref(),
                 &from_glib_borrow(ctx),
             )
-            .into_glib()
+                .into_glib()
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -1102,7 +1104,7 @@ impl<O: IsA<RTSPClient>> RTSPClientExt for O {
                 RTSPClient::from_glib_borrow(this).unsafe_cast_ref(),
                 &from_glib_borrow(ctx),
             )
-            .into_glib()
+                .into_glib()
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -1138,7 +1140,7 @@ impl<O: IsA<RTSPClient>> RTSPClientExt for O {
                 RTSPClient::from_glib_borrow(this).unsafe_cast_ref(),
                 &from_glib_borrow(ctx),
             )
-            .into_glib()
+                .into_glib()
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
@@ -1174,7 +1176,7 @@ impl<O: IsA<RTSPClient>> RTSPClientExt for O {
                 RTSPClient::from_glib_borrow(this).unsafe_cast_ref(),
                 &from_glib_borrow(ctx),
             )
-            .into_glib()
+                .into_glib()
         }
         unsafe {
             let f: Box_<F> = Box_::new(f);
