@@ -23,10 +23,13 @@ impl RTSPContext {
     }
 
 
-    pub fn uri_query(&self) -> String {
+    pub fn uri_query(&self) -> Option<String> {
         let ctx = self.0.as_ptr();
         let query = unsafe { (*(*ctx).uri).query };
-        unsafe { CStr::from_ptr(query).to_string_lossy().into_owned() }
+        if query.is_null() {
+            return None;
+        }
+        unsafe { Some(CStr::from_ptr(query).to_string_lossy().into_owned()) }
     }
 
     // TODO: Add various getters for all the contained fields as needed
